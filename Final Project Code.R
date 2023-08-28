@@ -73,4 +73,11 @@ tbl_uvregression(survivalists,
 
 hist(survivalists$days_lasted)
 
+mean(survivalists$age)
+new_mean <- function(x) {
+	n <- length(survivalists$age)
+	x <- sum(survivalists$age)
+	mean_val <- x/n
+	return(mean_val)
+}
 
