@@ -7,7 +7,8 @@ squirrel <- read.csv("squirrel-data.csv")
 
 library(gtsummary)
 tbl_summary(squirrel,
-						by = 'Park.Name',
-						include = c('Primary.Fur.Color', 'Activities',
-												'Interactions.With.Humans')
+						by = 'Area.Name',
+						include = c(Primary.Fur.Color, Activities,
+												Interactions.with.Humans)
 						)
+
