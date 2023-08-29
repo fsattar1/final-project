@@ -1,0 +1,55 @@
+---
+title: "Final Project Quarto"
+format: html
+editor: visual
+---
+
+## Quarto
+
+```{r}
+
+```
+
+```{r}
+#| echo: false
+#| label: tbl-one
+#| tbl-cap: "Descriptive statistics of survivalists"
+library(gtsummary)
+table1 <- tbl_summary(survivalists,
+						by = gender,
+						include = c(age, days_lasted,
+												result)
+)
+table1
+```
+
+```{r}
+#| echo: false
+#| label: tbl-two
+#| tbl-cap: "Regression Table"
+table2 <- tbl_uvregression(survivalists,
+								 x = gender,
+								 include = c(age, days_lasted, result),
+								 label = list(
+								 	age ~ "Age",
+								 	days_lasted ~ "Days Lasted",
+								 	result ~ "Result"),
+								 method = lm)
+table2
+```
+
+```{r}
+#| echo: false
+#| label: fig-one
+#| tbl-cap: "Histogram of Days Lasted"
+fig1 <- hist(survivalists$days_lasted)
+fig1
+```
+
+```{r}
+gtsummary::inline_text(table2, variable = "age")
+lasted_f <- inline_text(table1, variable = "days_lasted", column = "Female")
+lasted_m <- inline_text(table1, variable = "days_lasted", column = "Male")
+```
+
+The regression table shows the relationship between gender and the outcome variables of age, days lasted on the show, and result of place finished. @tbl-one shows additional descriptive statistics on these variables. @fig-one displays the distribution of days lasted across the survivalists. A greater proportion of female (`r lasted_f`) than male (`r lasted_m`) survivalists lasted over 40 days.

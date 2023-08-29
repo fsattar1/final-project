@@ -49,12 +49,13 @@ hist(squirrel$Squirrel.Latitude..DD.DDDDDD.)
 
 
 
-
+#EPI 590R Final Project - Alone data set - Survivalists
 
 install.packages("alone")
 
 colnames(survivalists)
 
+#1 - Table 1
 library(gtsummary)
 tbl_summary(survivalists,
 						by = gender,
@@ -62,6 +63,7 @@ tbl_summary(survivalists,
 												result)
 )
 
+#2 - Regression table
 tbl_uvregression(survivalists,
 								 x = gender,
 								 include = c(age, days_lasted, result),
@@ -71,8 +73,10 @@ tbl_uvregression(survivalists,
 								 	result ~ "Result"),
 								 method = lm)
 
+#3 - Figure
 hist(survivalists$days_lasted)
 
+#4 - Function
 mean(survivalists$age)
 new_mean <- function(x) {
 	n <- length(survivalists$age)
@@ -80,4 +84,11 @@ new_mean <- function(x) {
 	mean_val <- x/n
 	return(mean_val)
 }
+
+#5-8 - Quarto Doc
+
+#9 - Here package
+
+#10 - renv package
+
 
