@@ -53,6 +53,7 @@ hist(squirrel$Squirrel.Latitude..DD.DDDDDD.)
 
 install.packages("alone")
 
+survivalists <- here
 colnames(survivalists)
 
 #1 - Table 1
@@ -85,10 +86,19 @@ new_mean <- function(x) {
 	return(mean_val)
 }
 
-#5-8 - Quarto Doc
-
-#9 - Here package
+#9 - here package
+install.packages("here")
+?here
 
 #10 - renv package
+install.packages("renv")
+renv::init()
+install.packages("other_package")
+install.packages("github_user/github_package")
+renv::snapshot()
+
+#12 - README file
+??readme
+
 
 
